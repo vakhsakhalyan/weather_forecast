@@ -1,0 +1,264 @@
+@import '~src/sass/variables';
+
+.root_container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 0.5fr auto;
+  position: relative;
+}
+
+.nav-panel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 25;
+  &.nav-panel-active {
+    pointer-events: auto;
+  }
+}
+
+.nav-panel::before {
+  content: '';
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0c1066;
+  opacity: 0;
+  transition: opacity 300ms linear;
+  will-change: opacity;
+}
+
+.nav-panel-active::before {
+  opacity: 0.2;
+}
+
+.nav-panel-menu {
+  box-sizing: border-box;
+  transform: translateX(-103%);
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 90%;
+  max-width: 26rem;
+  background-color: white;
+  box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 4fr 1fr;
+  grid-gap: 1rem;
+  transition: transform 300ms linear;
+  will-change: transform;
+  &.nav-panel-menu-active {
+    transform: none;
+  }
+}
+
+
+/***** Header *****/
+
+.header-layout {
+  width: 100%;
+  display: grid;
+  height: 3em;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 0.25fr;
+  grid-template-rows: 1fr;
+  transition: background-color 0.5s;
+  margin: 0;
+}
+
+.header-container-bg-dark {
+  background-color: $darkBackground;
+  color: white;
+}
+
+.left_section {
+  display: grid;
+  max-width: 5px;
+}
+
+.date-text {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  display: inline;
+  margin: 0.5rem 0;
+}
+
+.menu-icon {
+  cursor: pointer;
+  margin-right: 2px;
+  margin-left: 5px;
+  z-index:200;
+}
+
+.menu-icon-dark {
+  fill: white;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin: 0 8px 0 8px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.section-container {
+  background: linear-gradient(to right, #81c784, #4fc3f7);
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "welcome welcome" "profile-image account-details";
+  box-sizing: border-box;
+  width: 100%;
+  align-content: center;
+  color: white;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 255, 0.2);
+  &.section-container-dark {
+    background: linear-gradient(to right, #1b5e20, #006064);
+  }
+}
+
+.welcome-text {
+  grid-area: welcome;
+  font-size: 1.25rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.profile-container {
+  grid-area: profile-image;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  align-self: center;
+  margin-left: 2rem;
+}
+
+.profile-image {
+  max-width: 50px;
+}
+
+.account-container {
+  grid-area: account-details;
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+  margin-left: 2em;
+}
+
+.username-text {
+  font-size: 17px;
+  margin-bottom: 1px;
+}
+
+.email-text {
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: -2px;
+  bottom: 1px;
+  background-color: #2b244d;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #97969e;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+  background-color: #FDFAFF;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.theme-mode {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.main-container-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0;
+  background: white;
+  transition: opacity 300ms linear;
+}
+
+/****** Footer *******/
+
+.footer-container {
+  position: absolute;
+  bottom: 20px;
+  z-index:100;
+  background-color: transparent;
+}
+
+.copyright__text {
+  letter-spacing: 1px;
+}

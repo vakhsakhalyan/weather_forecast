@@ -1,13 +1,26 @@
-<aside>
+<aside class="nav-panel" [ngClass]="{'nav-panel-active': showMenu}" (click)="toggleMenu()">
+  <nav class="nav-panel-menu" [ngClass]="{'nav-panel-menu-active': showMenu}" (click)="$event.stopImmediatePropagation()">
+    <section class="section-container" [ngClass]="{'section-container-dark': darkModeActived}">
+      <span class="welcome-text">Welcome</span>
+      <div class="profile-container">
+        <img class="profile-image" src="../assets/images/profile.png" width="50px"/>
+      </div>
+      <div class="account-container">
+        <span class="username-text">Vahe Akhsakhalyan</span>
+        <span class="email-text">vakhsakhalyan@gmail.com</span>
+      </div>
+    </section>
+  </nav>
 </aside>
 
 <div class="root_container">
-  <div class="header-layout">
+  <div class="header-layout" [ngClass]="{'header-container-bg-dark': darkModeActived}">
     <div class="left_section">
       <svg class="menu-icon"
            width="26" height="26"
            viewBox="0 0 24 24"
-           style=" fill:#000000;"><path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"></path>
+           (click)="toggleMenu()"
+           [ngClass]="{'menu-icon-dark': darkModeActived}"><path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"></path>
       </svg>
   <!--      <img src="../assets/images/logo.svg" width="24px"/>-->
     </div>
@@ -15,7 +28,7 @@
     <div class="theme-container">
       <span class="theme-mode">Light</span>
       <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" (click)="themeChange($event)">
         <span class="slider round"></span>
       </label>
       <span class="theme-mode">Dark</span>
@@ -23,11 +36,11 @@
   </div>
   <!-- MAIN component -->
   <main class="main-container">
-    <div class="main-container-bg" [ngClass]="{'main-container-bg-dark': darkModeActived}"></div>
+    <div class="main-container-bg" [ngClass]="{'main-container-bg-dark': darkModeActived}">fgfgfgf</div>
     <router-outlet></router-outlet>
   </main>
-  <footer class="footer-container">
-    <small class="copyright__text">Copyright © 2019 Evada Corp</small>
-  </footer>
+<!--  <footer class="footer-container">-->
+<!--    <small class="copyright__text">Copyright © 2019 Evada Corp</small>-->
+<!--  </footer>-->
 </div>
 
