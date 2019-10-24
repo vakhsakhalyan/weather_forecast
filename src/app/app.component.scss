@@ -53,7 +53,7 @@
   width: 90%;
   max-width: 26rem;
   background-color: white;
-  box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
+  box-shadow: 0 0 2rem rgba(43, 150, 93, 0.67);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 4fr 1fr;
@@ -247,6 +247,12 @@ input:checked + .slider:before {
   z-index: -2;
   opacity: 0;
   background: white;
+  transition: opacity 300ms linear;
+}
+
+.main-container-bg-dark {
+  opacity: 1;
+  background: #546e7a;
   transition: opacity 300ms linear;
 }
 
