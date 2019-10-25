@@ -250,9 +250,12 @@ input:checked + .slider:before {
   transition: opacity 300ms linear;
 }
 
-.main-container-bg-dark {
-  opacity: 1;
-  background: #546e7a;
+.main-container {
+  background: linear-gradient(to bottom, #81c784, #4fc3f7);
+}
+
+.main-container-dark {
+  background: linear-gradient(to bottom, #1b5e20, #006064);
   transition: opacity 300ms linear;
 }
 

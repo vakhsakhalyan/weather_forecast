@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city-weather-card.component.scss']
 })
 export class CityWeatherCardComponent implements OnInit {
-  weatherType = 'sunny';
+  weatherType = 'cloudy';
+  minTemp: any = 10;
+  maxTemp: any = 19;
 
   constructor() { }
 
